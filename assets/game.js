@@ -1,5 +1,5 @@
 var TimeDisplay = document.querySelector(".TimeDisplay")
-var TimeLeft = 5
+var TimeLeft = 60
 var startButton = document.getElementById("start-button")
 var quizSection = document.getElementById("quiz-section")
 var answerDiv = document.createElement("div")
@@ -27,37 +27,77 @@ var questionBank = [
         ],
         correctAnswer: "Parenthesis"
     },
+    {
+        Question: "Arrays in javascript can be used to store______",
+        Answers: [
+            "Booleans",
+            "Numbers and Strings",
+            "Other arrays",
+            "all of the above",
+        ],
+        correctAnswer: "all of the above"
+    },
+    {
+        Question: "String values must be enclosed within ______ when being assinged to varaibles",
+        Answers: [
+            ",,",
+            "{}",
+            "[]",
+            "()",
+        ],
+        correctAnswer:"{}"
+    },
+    {
+        Question: "A very useful tool used during development and debugging for printing content to the debuuger is:",
+        Answers: [
+            "JavaScript",
+            "Terminal/bash",
+            "For loops",
+            "console.log",
+        ],
+        correctAnswer: "console.log"
+    }
 ]
 
 var startQuiz = function(){
     startButton.remove();
-    renderQuestion()
+    DisplayTimeLeft();
+    renderQuestion();
 }
 
 var renderQuestion = function(){
-    var questionDiv = document.createElement("div")
-    questionDiv.innerHTML = questionBank[questionIndex].question
-        quizSection.appendChild(questionDiv)
-        renderChoices()
+    questionDiv.innerHTML = questionBank[questionIndex].Question
+    quizSection.appendChild(questionDiv)
+    renderChoices()    
+    
 }
 
-var renderChoices = function() {
-    for (let i = 0; i< questionBank.answers.length; i++) {
-        answersButton.setAttribute("class", "answer-button")
-        answerButton.setAttribute("data-answers", questionBank[questionIndex].answers[i])
-        answerButton.textContent = questionBank[questionIndex].answers[0]
+var renderChoices = function(){
+
+    for (let i = 0; i< questionBank[questionIndex].Answers.length; i++) {
+        var answerButton = document.createElement("button")
+        answerButton.setAttribute("class", "answer-button")
+        answerButton.setAttribute("data-answers", questionBank[questionIndex].Answers[i])
+        answerButton.textContent = questionBank[questionIndex].Answers[i]
         answerDiv.appendChild(answerButton)
+        
     }
+
 quizSection.appendChild(answerDiv)
 }
+
 var checkAnswer = function(event){
+
     var nextQuestionHelper = function(){
         questionIndex++
+
         questionDiv.remove()
         answerDiv.innerHTML = ""
-        renderQuestion()
 
-    var correct = questionBank[questionIndex].correctAnswer
+        renderQuestion()
+    }
+
+    // var correct = questionBank[questionIndex].correctAnswer
     if (questionIndex === questionBank.length-1){
 
     }
@@ -66,14 +106,14 @@ var checkAnswer = function(event){
     }
     else if (event.target.dataset.answer != questionBank[questionIndex].correctAnswer){
         nextQuestionHelper()
+        window.alert("Incorrect Answer")
+        
     }
-    }
+    
 }
 
 
 var answerButton = document.createElement("button")
-// startButton.addEventListener("click", startQuiz)
-// answer.Div.addEventListener("click", checkAnswer)
 
 function DisplayTimeLeft (){
 var Timer = setInterval(() => {
@@ -90,7 +130,9 @@ var Timer = setInterval(() => {
 }
 
 
-DisplayTimeLeft();
 
+
+startButton.addEventListener("click", startQuiz)
+answerDiv.addEventListener("click", checkAnswer)
 
 
