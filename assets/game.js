@@ -65,14 +65,15 @@ var checkAnswer = function(event){
         nextQuestionHelper()
     }
     else if (event.target.dataset.answer != questionBank[questionIndex].correctAnswer){
-        nextQuestionHelper
+        nextQuestionHelper()
     }
     }
 }
 
+
 var answerButton = document.createElement("button")
-startButton.addEventListener("Click", startQuiz)
-answer.Div.addEventListener("Click", checkAnswer)
+// startButton.addEventListener("click", startQuiz)
+// answer.Div.addEventListener("click", checkAnswer)
 
 function DisplayTimeLeft (){
 var Timer = setInterval(() => {
@@ -89,8 +90,7 @@ var Timer = setInterval(() => {
 }
 
 
-
-
-
 DisplayTimeLeft();
+
+
 
