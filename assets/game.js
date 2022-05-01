@@ -5,6 +5,7 @@ var quizSection = document.getElementById("quiz-section")
 var answerDiv = document.createElement("div")
 var questionDiv = document.createElement("div")
 var questionIndex = 0
+const div =document.querySelector('#my-element')
 
 var questionBank = [
     {
@@ -105,7 +106,6 @@ var checkAnswer = function(event){
         nextQuestionHelper()
     }
     else if (event.target.dataset.answer != questionBank[questionIndex].correctAnswer){
-        window.alert("Stop!")
         nextQuestionHelper()
         
     }

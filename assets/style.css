@@ -12,8 +12,15 @@
     font: 1.5em sans-serif;
 }
 
+.div{
+    background-color: red;
+}
+
 #quiz-section{
     background-color: rgb(95, 121, 236);
+    margin: 5%;
+    border-top: 20px;
+    border-radius: 100px;
 }
 
 #start-button{
