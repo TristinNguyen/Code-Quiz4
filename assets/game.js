@@ -105,8 +105,8 @@ var checkAnswer = function(event){
         nextQuestionHelper()
     }
     else if (event.target.dataset.answer != questionBank[questionIndex].correctAnswer){
+        window.alert("Stop!")
         nextQuestionHelper()
-        window.alert("Incorrect Answer")
         
     }
     

@@ -1,7 +1,25 @@
-*{
+/* *{
     background-color: rgb(224, 159, 159);
-}
+} */
 
 .TimeDisplay{
-    text-align: right;
+    font-size: larger;
+}
+
+.header{
+    padding-left: 15px;
+    padding-top: 15px;
+    font: 1.5em sans-serif;
+}
+
+#quiz-section{
+    background-color: rgb(95, 121, 236);
+}
+
+#start-button{
+    align-items: center;
+    padding-right: 10%;
+    padding-left: 10%;
+    background-color: aquamarine;
+    font: 1.5em sans-serif;
 }
